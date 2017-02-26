@@ -9,7 +9,7 @@
 .recipe {
   flex: 0 0 300px;
   width: 300px;
-  min-height: 320px;
+  min-height: 280px;
   border: 2px solid $primary-color;
   background-color: $white;
   margin: 30px 0;
@@ -19,18 +19,37 @@
 
   .recipeImg {
     width: 100%;
-    height:200px;
-    color: red;
+    height: 200px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
+    position: relative;
 
     .shutter {
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, .25);
       transition: all .5s;
+      font-size: 2rem;
+
+      p {
+        position: relative;
+        top: 80px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        font-family: $font;
+        color: $white;
+        opacity: 0;
+        padding-bottom: 7px;
+        width: 70%;
+        transition: all .5s;
+      }
     }
+  }
+
+  h2 {
+    padding: 4px;
   }
 }
 .recipe:hover {
@@ -39,5 +58,10 @@
 
   .shutter {
     background-color: rgba(0, 0, 0, 0);
+
+    p {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, .33);
+    }
   }
 }

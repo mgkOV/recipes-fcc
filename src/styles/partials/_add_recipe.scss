@@ -1,0 +1,25 @@
+.add-recipe {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 110px;
+  left: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: url(/img/button.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 101;
+  text-align: center;
+
+  p {
+    color: $white;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 23%;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
