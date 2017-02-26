@@ -1,0 +1,10 @@
+// foundation
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
+
+//my
+@import "base/vars";
+
+@import "partials/main";
+@import "partials/recipes_list";
