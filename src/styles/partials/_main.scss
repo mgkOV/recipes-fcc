@@ -2,10 +2,17 @@ htm, body {
   margin: 0;
   padding: 0;
   font-family: $font;
-  background: url(/img/bg.png) repeat;
+  overflow-y: scroll;
 }
 
 
+.bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: url(/img/bg.png) repeat;
+  z-index: -100;
+}
 
 h1, h2, h3, h4 {
   font-family: $heading-font;
@@ -29,7 +36,7 @@ header {
 }
 
 #app {
-  margin-top: 200px;
+  padding-top: 200px;
   width: 100%;
 }
 
@@ -46,8 +53,9 @@ header {
 
 .example-enter.example-enter-active {
   opacity: 1;
-  transition: all 500ms ease-in;
+  transition: all 1000ms ease-in;
 }
+
 
 .example-leave {
   opacity: 1;

@@ -1,10 +1,38 @@
 .recipe-view {
   width: 70%;
-  height: 60vh;
+  min-height: 60vh;
   background-color: $white;
   border: 2px solid $primary-color;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 15px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
-  transition: all .2s;
+  transition-delay: 1s;
+
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.recipe-view-img {
+  width: 45%;
+  height: 40vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+}
+
+.recipe-view-text {
+  width: 45%;
+  text-align: center;
+
+  ol {
+    text-align: left;
+
+    .ingredient {
+      margin-left: 1rem;
+      margin-top: .5rem;
+    }
+  }
 }

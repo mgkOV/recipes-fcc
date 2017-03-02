@@ -5,12 +5,10 @@ import recipes from '../data.json';
 class RecipeList extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { recipes }
   }
 
   renderRecipeList() {
-    const { recipes } = this.state;
+    const { recipes } = this.props;
     return (
       recipes.map(recipe => (
         <RecipeListItem {...recipe} key={ recipe.recipe_id }/>
@@ -26,5 +24,9 @@ class RecipeList extends Component {
     );
   }
 }
+
+RecipeList.defaultProps = {
+  recipes: recipes
+};
 
 export default RecipeList
