@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'App';
+import { Router, browserHistory } from 'react-router';
 import 'appStyles';
+
+import routes from './routes';
 
 // Load foundation
 $(document).foundation();
 
 ReactDOM.render(
-  <App />,
+  <Router history={browserHistory} routes={routes} />,
   document.getElementById('app')
 );

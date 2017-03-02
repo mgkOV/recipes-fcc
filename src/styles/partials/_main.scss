@@ -5,6 +5,8 @@ htm, body {
   background: url(/img/bg.png) repeat;
 }
 
+
+
 h1, h2, h3, h4 {
   font-family: $heading-font;
 }
@@ -28,4 +30,30 @@ header {
 
 #app {
   margin-top: 200px;
+  width: 100%;
+}
+
+.app {
+  width: 100%;
+
+}
+
+// Animation of react Component
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: all 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: all 500ms ease-in;
 }

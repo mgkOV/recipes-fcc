@@ -4,7 +4,7 @@ module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/js/foundation.min.js',
-    './src/app.jsx'
+    './src/index.jsx'
   ],
   output:{
     path: __dirname + '/public',
@@ -34,6 +34,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   devServer: {
+    historyApiFallback: true,
     inline: true,
     contentBase: './public',
     port: 8080

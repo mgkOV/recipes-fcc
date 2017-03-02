@@ -1,0 +1,10 @@
+.recipe-view {
+  width: 70%;
+  height: 60vh;
+  background-color: $white;
+  border: 2px solid $primary-color;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+  transition: all .2s;
+}
