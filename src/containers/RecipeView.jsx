@@ -33,7 +33,7 @@ class RecipeView extends Component {
             <Link to="/">
               <button className="success button">
                 <i className="fa fa-arrow-circle-left" aria-hidden="true" />
-                Back To Recipes List
+                Back
               </button>
             </Link>
             <button className="button">
