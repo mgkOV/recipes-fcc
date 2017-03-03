@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import { deleteRecipe, fetchRecipes } from '../actions';
+import Modal from 'Modal';
+import ModalContent from 'ModalContent';
+
+import { deleteRecipe, fetchRecipes, showModal } from '../actions';
+
 
 class RecipeView extends Component {
 
@@ -20,6 +24,23 @@ class RecipeView extends Component {
 
   onClickDelete(){
     this.props.deleteRecipe(this.props.params.id.toString());
+  }
+
+  showModal() {
+    this.props.showModal();
+  }
+
+  renderModal() {
+    console.log('modal', this.props.modal);
+    console.log('recipes', this.props.recipes);
+    if (this.props.modal) {
+      return (
+        <Modal>
+          <ModalContent />
+        </Modal>
+      );
+    }
+    return null;
   }
 
   render() {
@@ -48,7 +69,7 @@ class RecipeView extends Component {
                 Back
               </button>
             </Link>
-            <button className="button">
+            <button className="button" onClick={this.showModal.bind(this)}>
               <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
               Edit
             </button>
@@ -59,13 +80,14 @@ class RecipeView extends Component {
               </button>
             </Link>
           </div>
+          {this.renderModal()}
         </div>
     );
   }
 }
 
-const mapStateToProps = ({ recipes }) => (
-  { recipes }
+const mapStateToProps = ({ recipes, modal }) => (
+  { recipes, modal }
 )
 
-export default connect(mapStateToProps, { deleteRecipe, fetchRecipes })(RecipeView)
+export default connect(mapStateToProps, { deleteRecipe, fetchRecipes, showModal })(RecipeView)

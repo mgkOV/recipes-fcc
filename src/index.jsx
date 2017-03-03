@@ -14,11 +14,13 @@ const createStoreWithMiddleware = applyMiddleware(
   promise
 )(createStore);
 
+export const store = createStoreWithMiddleware(reducers);
+
 // Load foundation
 $(document).foundation();
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <Router history={browserHistory} routes={routes} />
   </Provider>,
   document.getElementById('app')

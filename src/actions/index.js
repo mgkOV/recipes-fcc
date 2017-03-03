@@ -19,3 +19,17 @@ export const deleteRecipe = (id) => {
     payload: recipes
   }
 }
+
+export const showModal = () => {
+  return {
+    type: C.SHOW_MODAL,
+    payload: true
+  }
+}
+
+export const hideModal = () => {
+  return {
+    type: C.HIDE_MODAL,
+    payload: false
+  }
+}
