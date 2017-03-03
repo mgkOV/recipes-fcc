@@ -1,5 +1,6 @@
 const constants = {
-  FETCHING_RECIPES: 'FETCHING_RECIPES'
+  FETCHING_RECIPES: 'FETCHING_RECIPES',
+  DELETE_RECIPES: 'DELETE_RECIPES'
 }
 
-import default constants
+export default constants

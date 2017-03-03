@@ -13,6 +13,16 @@
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
+
+  button, .button.success {
+    width: 150px;
+    font-size: 1rem;
+    color: $white;
+  }
+
+  .fa {
+    margin-right: .5rem;
+  }
 }
 
 .recipe-view-img {

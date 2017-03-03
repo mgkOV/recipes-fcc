@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import recipes from '../data.json';
+import { connect } from 'react-redux';
 
+import { deleteRecipe, fetchRecipes } from '../actions';
 
 class RecipeView extends Component {
+
+  componentWillMount() {
+    this.props.fetchRecipes();
+  }
 
   renderIngredients(ingredients) {
     return (
@@ -12,10 +17,17 @@ class RecipeView extends Component {
       ))
     )
   }
+
+  onClickDelete(){
+    this.props.deleteRecipe(this.props.params.id.toString());
+  }
+
   render() {
     const recipe = this.props.recipes.filter( recipe => {
       return recipe.recipe_id === this.props.params.id.toString();
     } );
+
+    if (!recipe[0]) return null;
 
     const { image_url, title, ingredients } = recipe[0];
 
@@ -41,7 +53,7 @@ class RecipeView extends Component {
               Edit
             </button>
             <Link to="/">
-              <button className="alert button">
+              <button className="alert button" onClick={this.onClickDelete.bind(this)}>
                 <i className="fa fa-times" aria-hidden="true"></i>
                 Delete
               </button>
@@ -52,8 +64,8 @@ class RecipeView extends Component {
   }
 }
 
-RecipeView.defaultProps = {
-  recipes: recipes
-}
+const mapStateToProps = ({ recipes }) => (
+  { recipes }
+)
 
-export default RecipeView
+export default connect(mapStateToProps, { deleteRecipe, fetchRecipes })(RecipeView)

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import RecipeListItem from 'RecipeListItem';
-import recipes from '../data.json';
+import { connect } from 'react-redux';
+import { fetchRecipes } from '../actions';
 
 class RecipeList extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    this.props.fetchRecipes();
   }
 
   renderRecipeList() {
@@ -25,8 +30,8 @@ class RecipeList extends Component {
   }
 }
 
-RecipeList.defaultProps = {
-  recipes: recipes
-};
+const mapStateToProps = ({ recipes }) => (
+  { recipes }
+)
 
-export default RecipeList
+export default connect(mapStateToProps, { fetchRecipes } )(RecipeList);
