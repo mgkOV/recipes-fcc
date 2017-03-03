@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Modal from 'Modal';
 import ModalContent from 'ModalContent';
@@ -80,7 +81,7 @@ class RecipeView extends Component {
               </button>
             </Link>
           </div>
-          {this.renderModal()}
+            {this.renderModal()}
         </div>
     );
   }
