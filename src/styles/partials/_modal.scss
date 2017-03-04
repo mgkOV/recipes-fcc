@@ -9,45 +9,91 @@
 }
 
 .modal-bg {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #000;
-  opacity: .3;
-  position: relative;
+  opacity: .5;
+  position: fixed;
   top: 0;
   left: 0;
-  filter: blur(5px) grayscale(50%);
-
 }
 
 .modal-content {
   width: 500px;
-  height: 500px;
+  min-height: 400px;
   position: fixed;
   background-color: $white;
+  border: 2px solid $primary-color;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10001;
+
+  form {
+    margin: 10px;
+  }
+
+  .controls {
+    text-align: center;
+    width: 50%;
+    margin: 20px auto;
+  }
+
+  .helper-text {
+    font-size: .8rem;
+    opacity: .8;
+  }
 }
 
-// Animation of react Component
-
-.modal-enter {
-  opacity: 0.01;
+.appear {
+  animation: content_appear .5s;
 }
 
-.modal-enter.modal-enter-active {
-  opacity: 1;
-  transition: all 500ms ease-in;
+.disappear {
+  animation: content_disappear .5s;
+}
+
+@keyframes content_appear {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@keyframes content_disappear {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: -50%;
+  }
+}
+
+.bg-appear {
+  animation: bg_appear .5s;
+}
+
+.bg-disappear {
+  animation: bg_disappear .5s;
 }
 
 
-.modal-leave {
-  opacity: 1;
+@keyframes bg_appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: .5;
+  }
 }
 
-.modal-leave.example-leave-active {
-  opacity: 0.01;
-  transition: all 500ms ease-in;
+@keyframes bg_disappear {
+  0% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 0;
+  }
 }

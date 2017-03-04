@@ -37,9 +37,14 @@ class RecipeView extends Component {
 
   renderModal() {
     if (this.props.modal) {
+
+      const recipe = this.props.recipes.filter( recipe => {
+        return recipe.recipe_id === this.props.params.id.toString();
+      } );
+
       return (
         <Modal key="modal">
-          <ModalContent />
+          <ModalContent {...recipe[0]} />
         </Modal>
       );
     }

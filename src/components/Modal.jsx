@@ -24,9 +24,6 @@ class Modal extends Component {
     ReactDOM.render(
       <Provider store={store}>
         <div className="modal">
-          <div className="modal-bg">
-
-          </div>
           {this.props.children}
         </div>
       </Provider>,
