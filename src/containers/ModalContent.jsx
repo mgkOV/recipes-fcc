@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { hideModal } from '../actions';
+import { hideModal, editRecipe } from '../actions';
 
 class ModalContent extends Component {
   hideModal() {
@@ -12,7 +12,13 @@ class ModalContent extends Component {
   }
 
   saveChanges() {
-
+    const { image_url, recipe_id } = this.props
+    const title = this.title.value;
+    const ingredients = this.ingredients.value
+      .split(';')
+      .filter(i => i.replace(/^\s+/, '').replace(/\s+$/, ''));
+    this.props.editRecipe({image_url, recipe_id, title, ingredients })
+    this.hideModal();
   }
 
   render() {
@@ -46,4 +52,4 @@ class ModalContent extends Component {
   }
 }
 
-export default connect(null, { hideModal })(ModalContent)
+export default connect(null, { hideModal, editRecipe })(ModalContent)

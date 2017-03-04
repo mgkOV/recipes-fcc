@@ -33,3 +33,11 @@ export const hideModal = () => {
     payload: false
   }
 }
+
+export const editRecipe = (recipe) => {
+  const recipes = api.editRecipe(recipe);
+  return {
+    type: C.EDIT_RECIPE,
+    payload: recipes
+  }
+}

@@ -39,7 +39,25 @@ const api = {
   },
 
   getNewRecipe: '',
-  setReciipe: '',
+
+  editRecipe(editedRecipe) {
+    let recipesString = localStorage.getItem('recipes');
+    let recipes = parseRecipes(recipesString);
+
+    if (recipes) {
+      recipes = recipes.map(recipe => {
+        if (recipe.recipe_id === editedRecipe.recipe_id) {
+          return editedRecipe;
+        }
+
+        return recipe;
+      });
+
+      localStorage.setItem('recipes', JSON.stringify(recipes));
+      return recipes;
+    }
+    return [];
+  },
 
   deleteRecipe(id) {
     let recipesString = localStorage.getItem('recipes');
