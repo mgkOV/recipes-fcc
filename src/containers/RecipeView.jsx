@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Modal from 'Modal';
 import ModalContent from 'ModalContent';
@@ -10,6 +9,11 @@ import { deleteRecipe, fetchRecipes, showModal } from '../actions';
 
 
 class RecipeView extends Component {
+  constructor(props) {
+    super(props);
+
+    this.renderModal = this.renderModal.bind(this);
+  }
 
   componentWillMount() {
     this.props.fetchRecipes();
@@ -32,11 +36,9 @@ class RecipeView extends Component {
   }
 
   renderModal() {
-    console.log('modal', this.props.modal);
-    console.log('recipes', this.props.recipes);
     if (this.props.modal) {
       return (
-        <Modal>
+        <Modal key="modal">
           <ModalContent />
         </Modal>
       );
