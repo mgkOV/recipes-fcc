@@ -41,7 +41,7 @@ const api = {
   },
 
   addPrivatRecipe(recipe){
-    recipe.image_url = 'http://static.food2fork.com/Jalapeno2BPopper2BGrilled2BCheese2BSandwich2B12B500fd186186.jpg';
+    recipe.image_url = '/img/placeholder.png';
     let recipesString = localStorage.getItem('recipes');
     let recipes = parseRecipes(recipesString);
     recipes.unshift(recipe);

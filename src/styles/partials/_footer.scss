@@ -1,0 +1,14 @@
+footer {
+  background-color: #0799A0;
+  color: $white;
+  height: 80px;
+  width: 100vw;
+  text-align: center;
+  font-size: 1.2rem;
+  border-top: 2px solid $primary-color;
+  padding-top: 10px;
+
+  a, a:hover, a:active {
+    color: $white;
+  }
+}
