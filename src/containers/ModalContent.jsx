@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { hideModal, editRecipe } from '../actions';
+import { hideModal, editRecipe, addPrivatRecipe } from '../actions';
+import moment from 'moment';
 
 class ModalContent extends Component {
   hideModal() {
@@ -17,12 +18,17 @@ class ModalContent extends Component {
     const ingredients = this.ingredients.value
       .split(';')
       .filter(i => i.replace(/^\s+/, '').replace(/\s+$/, ''));
-    this.props.editRecipe({image_url, recipe_id, title, ingredients })
+    if (this.props.privatRecipe) {
+      this.props.addPrivatRecipe({ recipe_id, title, ingredients });
+    } else {
+      this.props.editRecipe({image_url, recipe_id, title, ingredients });
+    }
     this.hideModal();
   }
 
   render() {
     const { title, ingredients } = this.props;
+    console.log(this.props.recipe_id);
 
     return (
       <div>
@@ -52,4 +58,11 @@ class ModalContent extends Component {
   }
 }
 
-export default connect(null, { hideModal, editRecipe })(ModalContent)
+ModalContent.defaultProps = {
+  image_url: '',
+  recipe_id: '',
+  title: '',
+  ingredients: []
+};
+
+export default connect(null, { hideModal, editRecipe, addPrivatRecipe })(ModalContent)

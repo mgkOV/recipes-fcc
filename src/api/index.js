@@ -1,5 +1,7 @@
 import axios from 'axios';
 import _ from 'lodash';
+import moment from 'moment';
+
 
 const verifyLocalData = (data) => {
   if ( !data || !(_.isArray(data)))  return false;
@@ -38,7 +40,35 @@ const api = {
     }
   },
 
-  getNewRecipe: '',
+  addPrivatRecipe(recipe){
+    recipe.image_url = 'http://static.food2fork.com/Jalapeno2BPopper2BGrilled2BCheese2BSandwich2B12B500fd186186.jpg';
+    let recipesString = localStorage.getItem('recipes');
+    let recipes = parseRecipes(recipesString);
+    recipes.unshift(recipe);
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+    return recipes;
+  },
+
+  fetchNewRecipe(searchStr) {
+    const recipe = axios.get(`/api/recipes/${searchStr}`);
+
+    return recipe.then(recipe => {
+      let recipesString = localStorage.getItem('recipes');
+      let recipes = parseRecipes(recipesString);
+
+      if (recipe.data.recipe) {
+        let newRecipe = _.pick(recipe.data.recipe, ["ingredients", "image_url", "title"]);
+        newRecipe.recipe_id = moment().format('x');
+
+        recipes.unshift(newRecipe);
+        localStorage.setItem('recipes', JSON.stringify(recipes));
+        return recipes;
+      }
+      console.log('bad request');
+      return recipes;
+    });
+
+  },
 
   editRecipe(editedRecipe) {
     let recipesString = localStorage.getItem('recipes');
@@ -50,7 +80,7 @@ const api = {
           return editedRecipe;
         }
 
-        return recipe;
+        return recipes;
       });
 
       localStorage.setItem('recipes', JSON.stringify(recipes));

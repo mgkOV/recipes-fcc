@@ -41,3 +41,19 @@ export const editRecipe = (recipe) => {
     payload: recipes
   }
 }
+
+export const addPrivatRecipe = (recipe) => {
+  const recipes = api.addPrivatRecipe(recipe);
+  return {
+    type: C.ADD_RECIPE,
+    payload: recipes
+  }
+}
+
+export const fetchNewRecipe = (searchStr) => {
+  const recipes = api.fetchNewRecipe(searchStr);
+  return {
+    type: C.FETCH_NEW_RECIPE,
+    payload: recipes
+  }
+}

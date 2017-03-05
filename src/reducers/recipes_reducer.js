@@ -6,6 +6,10 @@ export default function (state = [], action) {
       return action.payload.data || action.payload
     case C.EDIT_RECIPE:
       return action.payload;
+    case C.ADD_RECIPE:
+      return action.payload;
+    case C.FETCH_NEW_RECIPE:
+      return action.payload
     default:
       return state;
   }
