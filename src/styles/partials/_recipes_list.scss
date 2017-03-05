@@ -66,3 +66,13 @@
     }
   }
 }
+
+//Animations
+.item-appear {
+  opacity: 0.01;
+}
+
+.item-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

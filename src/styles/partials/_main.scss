@@ -53,7 +53,7 @@ header {
 
 .example-enter.example-enter-active {
   opacity: 1;
-  transition: all 500ms ease-out;
+  transition: all 700ms ease-out;
 }
 
 
@@ -63,5 +63,5 @@ header {
 
 .example-leave.example-leave-active {
   opacity: 0.01;
-  transition: all 500ms ease-out;
+  transition: all 700ms ease-out;
 }
