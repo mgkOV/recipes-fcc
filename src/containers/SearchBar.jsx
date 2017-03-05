@@ -11,12 +11,11 @@ class SearchBar extends Component {
   }
 
   showMessage() {
+    const visibility = this.props.badRequest ? 'show-message' : '';
     return (
-      this.props.badRequest ?
-        <p>
-          Cuoldn't found recipes with such ingridient(s)
+        <p className={'message ' + visibility}>
+          Couldn't found recipes with such ingridient(s)
         </p>
-        : null
     );
   }
 

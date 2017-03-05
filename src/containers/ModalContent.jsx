@@ -28,7 +28,6 @@ class ModalContent extends Component {
 
   render() {
     const { title, ingredients } = this.props;
-    console.log(this.props.recipe_id);
 
     return (
       <div>

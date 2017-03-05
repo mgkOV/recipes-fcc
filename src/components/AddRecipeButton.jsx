@@ -20,7 +20,6 @@ class AddRecipeButton extends Component {
   }
 
   showModal() {
-    console.log('modal');
     this.props.showModal();
   }
 

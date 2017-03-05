@@ -64,7 +64,6 @@ const api = {
         localStorage.setItem('recipes', JSON.stringify(recipes));
         return recipes;
       }
-      console.log('bad request');
       return recipes;
     });
 

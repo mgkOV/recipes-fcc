@@ -71,7 +71,7 @@ export const fetchNewRecipe = (searchStr, recipesLength) => {
             type: C.BAD_REQUEST_HIDE,
             payload: false
           });
-        }, 2000);
+        }, 3000);
       }
     })
   }

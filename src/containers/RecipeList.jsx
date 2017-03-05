@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RecipeListItem from 'RecipeListItem';
 import { connect } from 'react-redux';
 
+
 import { fetchRecipes } from '../actions';
 
 
@@ -24,9 +25,15 @@ class RecipeList extends Component {
   }
 
   render() {
+    const transitionOptions = {
+      transitionName: "fade",
+      transitionEnterTimeout: 500,
+      transitionLeaveTimeout: 500
+    };
+
     return (
       <div className="recipe-list">
-        {this.renderRecipeList()}
+          {this.renderRecipeList()}
       </div>
     );
   }
