@@ -4,6 +4,8 @@ const path = require('path');
 const axios = require('axios');
 const recipes = require('./data');
 
+const port = process.env.PORT || 3000;
+
 app.use('/', express.static(__dirname + '/public'));
 
 app.get('/api/recipes', (req, res) => {
@@ -35,4 +37,4 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname + '/public' + '/index.html'))
 });
 
-app.listen(3000, () => console.log('App running on port 3000'))
+app.listen(port, () => console.log('App running on port 3000'))
