@@ -4,6 +4,7 @@ import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
+import reduxThunk from 'redux-thunk';
 
 import 'appStyles';
 
@@ -11,7 +12,7 @@ import reducers from './reducers';
 import routes from './routes';
 
 const createStoreWithMiddleware = applyMiddleware(
-  promise
+  promise, reduxThunk
 )(createStore);
 
 export const store = createStoreWithMiddleware(reducers);

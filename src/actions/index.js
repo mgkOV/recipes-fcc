@@ -36,6 +36,7 @@ export const hideModal = () => {
 
 export const editRecipe = (recipe) => {
   const recipes = api.editRecipe(recipe);
+
   return {
     type: C.EDIT_RECIPE,
     payload: recipes
@@ -50,10 +51,28 @@ export const addPrivatRecipe = (recipe) => {
   }
 }
 
-export const fetchNewRecipe = (searchStr) => {
+export const fetchNewRecipe = (searchStr, recipesLength) => {
   const recipes = api.fetchNewRecipe(searchStr);
-  return {
-    type: C.FETCH_NEW_RECIPE,
-    payload: recipes
+  return (dispatch) => {
+    recipes.then(recipes => {
+      dispatch({
+        type: C.FETCH_NEW_RECIPE,
+        payload: recipes
+      });
+
+      if (recipes.length === recipesLength) {
+        dispatch({
+          type: C.BAD_REQUEST_SHOW,
+          payload: true
+        });
+
+        window.setTimeout(() => {
+          dispatch({
+            type: C.BAD_REQUEST_HIDE,
+            payload: false
+          });
+        }, 2000);
+      }
+    })
   }
 }

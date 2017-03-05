@@ -79,8 +79,7 @@ const api = {
         if (recipe.recipe_id === editedRecipe.recipe_id) {
           return editedRecipe;
         }
-
-        return recipes;
+        return recipe;
       });
 
       localStorage.setItem('recipes', JSON.stringify(recipes));
